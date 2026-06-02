@@ -25,6 +25,36 @@ public class DietManager extends JFrame{
         genderPanel.add(maleB);
         genderPanel.add(femaleB);
         topPanel.add(genderPanel);
+
+        topPanel.add(new JLabel("현재 몸무게(kg): ", SwingConstants.RIGHT));
+        JTextField currentWeightField = new JTextField(10);
+        topPanel.add(currentWeightField);
+
+        topPanel.add(new JLabel("목표 몸무게(kg): ", SwingConstants.RIGHT));
+        JTextField targetWeightField = new JTextField(10);
+        topPanel.add(targetWeightField);
+
+        JButton calcBtn = new JButton("목표 칼로리 설정");
+        topPanel.add(calcBtn);
+
+
+        JPanel centerPanel = new JPanel(new BorderLayout());
+
+        JPanel inputPanel = new JPanel(new FlowLayout());
+        inputPanel.add(new JLabel("먹은 음식 칼로리: "));
+
+        JTextField foodCalorieField = new JTextField(10);
+        inputPanel.add(foodCalorieField);
+
+        JButton addFoodB = new JButton("입력하기");
+        inputPanel.add(addFoodB);
+        centerPanel.add(inputPanel, BorderLayout.NORTH);
+
+        JTextArea logArea = new JTextArea(8, 20);
+        logArea.setEditable(false);
+        logArea.setText("=== 오늘의 식단 기록 ===\n");
+        JScrollPane scrollPane = new JScrollPane(logArea);
+        centerPanel.add(scrollPane, BorderLayout.CENTER);
     }
 
 }
