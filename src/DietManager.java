@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class DietManager extends JFrame{
 
@@ -73,6 +74,33 @@ public class DietManager extends JFrame{
         c.add(topPanel, BorderLayout.NORTH);
         c.add(centerPanel, BorderLayout.CENTER);
         c.add(bottomPanel, BorderLayout.SOUTH);
+//목표 칼로리 설정 버튼
+        calcB.addActionListener(new ActionListener() {calcB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+
+                    int currentWeight = Integer.parseInt(currentWeightField.getText());
+                    int targetWeight = Integer.parseInt(targetWeightField.getText());
+
+                    int targetCalorie = 0;
+                    if (maleB.isSelected()) {
+                        // 남성 공식 넣기
+                    } else {
+                        // 여성 공식 넣
+                    }
+
+                    calorieBar.setMaximum(targetCalorie);
+                    calorieBar.setValue(0);
+
+                    statusLabel.setText("오늘 남은 섭취 가능 칼로리: " + targetCalorie + " kcal");
+                    JOptionPane.showMessageDialog(null, "목표 칼로리: " + targetCalorie , "설정 완료", JOptionPane.INFORMATION_MESSAGE);
+
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "몸무게 다시 입력", "입력 오류", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
 
         setSize(500, 580);
         setVisible(true);
